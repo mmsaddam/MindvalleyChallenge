@@ -18,6 +18,7 @@
 		4A5A42E02475238000180BE5 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5A42DF2475238000180BE5 /* ServiceError.swift */; };
 		4A5A42E2247523C000180BE5 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5A42E1247523C000180BE5 /* Result.swift */; };
 		4A5A42E4247525F600180BE5 /* RESTClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5A42E3247525F600180BE5 /* RESTClientTests.swift */; };
+		4A5A42E72475402D00180BE5 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5A42E62475402D00180BE5 /* Media.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		4A5A42DF2475238000180BE5 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		4A5A42E1247523C000180BE5 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		4A5A42E3247525F600180BE5 /* RESTClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTClientTests.swift; sourceTree = "<group>"; };
+		4A5A42E62475402D00180BE5 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,8 +91,9 @@
 			children = (
 				4A5A42B92474EB1400180BE5 /* AppDelegate.swift */,
 				4A5A42BB2474EB1400180BE5 /* SceneDelegate.swift */,
-				4A5A42BD2474EB1400180BE5 /* ViewController.swift */,
 				4A5A42DB247522A800180BE5 /* RESTClient */,
+				4A5A42BD2474EB1400180BE5 /* ViewController.swift */,
+				4A5A42E52475401B00180BE5 /* Models */,
 				4A5A42BF2474EB1400180BE5 /* Main.storyboard */,
 				4A5A42C22474EB1700180BE5 /* Assets.xcassets */,
 				4A5A42C42474EB1700180BE5 /* LaunchScreen.storyboard */,
@@ -117,6 +120,14 @@
 				4A5A42E1247523C000180BE5 /* Result.swift */,
 			);
 			path = RESTClient;
+			sourceTree = "<group>";
+		};
+		4A5A42E52475401B00180BE5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4A5A42E62475402D00180BE5 /* Media.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +233,7 @@
 			files = (
 				4A5A42E2247523C000180BE5 /* Result.swift in Sources */,
 				4A5A42E02475238000180BE5 /* ServiceError.swift in Sources */,
+				4A5A42E72475402D00180BE5 /* Media.swift in Sources */,
 				4A5A42DE2475232E00180BE5 /* RESTClient.swift in Sources */,
 				4A5A42BE2474EB1400180BE5 /* ViewController.swift in Sources */,
 				4A5A42BA2474EB1400180BE5 /* AppDelegate.swift in Sources */,
