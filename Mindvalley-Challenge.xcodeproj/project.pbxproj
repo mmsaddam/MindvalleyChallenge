@@ -14,6 +14,10 @@
 		4A5A42C32474EB1700180BE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A5A42C22474EB1700180BE5 /* Assets.xcassets */; };
 		4A5A42C62474EB1700180BE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A5A42C42474EB1700180BE5 /* LaunchScreen.storyboard */; };
 		4A5A42D12474EB1800180BE5 /* Mindvalley_ChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5A42D02474EB1800180BE5 /* Mindvalley_ChallengeTests.swift */; };
+		4A5A42DE2475232E00180BE5 /* RESTClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5A42DC2475230500180BE5 /* RESTClient.swift */; };
+		4A5A42E02475238000180BE5 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5A42DF2475238000180BE5 /* ServiceError.swift */; };
+		4A5A42E2247523C000180BE5 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5A42E1247523C000180BE5 /* Result.swift */; };
+		4A5A42E4247525F600180BE5 /* RESTClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5A42E3247525F600180BE5 /* RESTClientTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +42,10 @@
 		4A5A42CC2474EB1800180BE5 /* Mindvalley-ChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mindvalley-ChallengeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A5A42D02474EB1800180BE5 /* Mindvalley_ChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mindvalley_ChallengeTests.swift; sourceTree = "<group>"; };
 		4A5A42D22474EB1800180BE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A5A42DC2475230500180BE5 /* RESTClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTClient.swift; sourceTree = "<group>"; };
+		4A5A42DF2475238000180BE5 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
+		4A5A42E1247523C000180BE5 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		4A5A42E3247525F600180BE5 /* RESTClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTClientTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +90,7 @@
 				4A5A42B92474EB1400180BE5 /* AppDelegate.swift */,
 				4A5A42BB2474EB1400180BE5 /* SceneDelegate.swift */,
 				4A5A42BD2474EB1400180BE5 /* ViewController.swift */,
+				4A5A42DB247522A800180BE5 /* RESTClient */,
 				4A5A42BF2474EB1400180BE5 /* Main.storyboard */,
 				4A5A42C22474EB1700180BE5 /* Assets.xcassets */,
 				4A5A42C42474EB1700180BE5 /* LaunchScreen.storyboard */,
@@ -94,9 +103,20 @@
 			isa = PBXGroup;
 			children = (
 				4A5A42D02474EB1800180BE5 /* Mindvalley_ChallengeTests.swift */,
+				4A5A42E3247525F600180BE5 /* RESTClientTests.swift */,
 				4A5A42D22474EB1800180BE5 /* Info.plist */,
 			);
 			path = "Mindvalley-ChallengeTests";
+			sourceTree = "<group>";
+		};
+		4A5A42DB247522A800180BE5 /* RESTClient */ = {
+			isa = PBXGroup;
+			children = (
+				4A5A42DC2475230500180BE5 /* RESTClient.swift */,
+				4A5A42DF2475238000180BE5 /* ServiceError.swift */,
+				4A5A42E1247523C000180BE5 /* Result.swift */,
+			);
+			path = RESTClient;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +220,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A5A42E2247523C000180BE5 /* Result.swift in Sources */,
+				4A5A42E02475238000180BE5 /* ServiceError.swift in Sources */,
+				4A5A42DE2475232E00180BE5 /* RESTClient.swift in Sources */,
 				4A5A42BE2474EB1400180BE5 /* ViewController.swift in Sources */,
 				4A5A42BA2474EB1400180BE5 /* AppDelegate.swift in Sources */,
 				4A5A42BC2474EB1400180BE5 /* SceneDelegate.swift in Sources */,
@@ -210,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A5A42E4247525F600180BE5 /* RESTClientTests.swift in Sources */,
 				4A5A42D12474EB1800180BE5 /* Mindvalley_ChallengeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
