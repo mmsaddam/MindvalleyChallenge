@@ -21,7 +21,11 @@ enum RequestMethod: String {
   Basic API client to fetch remote resource. API client is made based on URLSession
  */
 
-final class RESTClient {
+protocol RESTClientProtocol {
+    func sendRequest<T>(path: String, method: RequestMethod, param: JSON, completion: @escaping (Result<T>) -> Void) -> URLSessionTask?
+}
+
+final class RESTClient: RESTClientProtocol {
     
     private let baseUrl: String
     
@@ -29,7 +33,7 @@ final class RESTClient {
         self.baseUrl = baseUrl
     }
     
-    public func sendRequest<T>(path: String, method: RequestMethod, param: JSON, completion: @escaping (Result<T>) -> Void) -> URLSessionTask? {
+    func sendRequest<T>(path: String, method: RequestMethod, param: JSON, completion: @escaping (Result<T>) -> Void) -> URLSessionTask? {
         
         let request =  URLRequest(baseUrl: baseUrl, path: path, method: method, params: param)
         
