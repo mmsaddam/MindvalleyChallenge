@@ -21,12 +21,12 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Episodes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qxb-7n-l0a">
-                        <rect key="frame" x="15" y="15" width="127.5" height="35"/>
+                        <rect key="frame" x="15" y="0.0" width="127.5" height="50"/>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                         <color key="textColor" red="0.58431372549019611" green="0.59607843137254901" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="NdJ-Zp-PYR">
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="NdJ-Zp-PYR">
                         <rect key="frame" x="0.0" y="65" width="320" height="381"/>
                         <color key="backgroundColor" red="0.1019607843" green="0.1137254902" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -40,10 +40,10 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                 </subviews>
-                <color key="backgroundColor" red="0.1019607843" green="0.1137254902" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="NdJ-Zp-PYR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="48W-8l-754"/>
-                    <constraint firstItem="Qxb-7n-l0a" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="5NC-xB-Ddn"/>
+                    <constraint firstItem="Qxb-7n-l0a" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="5NC-xB-Ddn"/>
                     <constraint firstItem="NdJ-Zp-PYR" firstAttribute="top" secondItem="Qxb-7n-l0a" secondAttribute="bottom" constant="15" id="9fg-Rd-POK"/>
                     <constraint firstItem="Qxb-7n-l0a" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="CeX-R7-t27"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Qxb-7n-l0a" secondAttribute="trailing" constant="15" id="Y69-wW-Twn"/>
@@ -52,6 +52,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="collectionHeightConstraints" destination="9ld-ez-XHI" id="XvG-df-w2w"/>
                 <outlet property="collectionView" destination="NdJ-Zp-PYR" id="sf2-gj-mRN"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="234.70982142857142"/>

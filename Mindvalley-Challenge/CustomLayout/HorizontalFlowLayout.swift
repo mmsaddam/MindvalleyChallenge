@@ -18,11 +18,10 @@ final class HorizontalFlowLayout: UICollectionViewFlowLayout {
         super.init(coder: coder)
         commontInit()
     }
+    
     private func commontInit() {
         scrollDirection = .horizontal
         minimumInteritemSpacing = 0
-        minimumLineSpacing = 29
-        let height: Double = 228 + 153
-        itemSize = CGSize(width: 152.0, height: height)
+        minimumLineSpacing = 20
     }
 }

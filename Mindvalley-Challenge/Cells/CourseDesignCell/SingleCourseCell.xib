@@ -21,7 +21,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sfR-op-ToE">
-                        <rect key="frame" x="0.0" y="0.0" width="196" height="338"/>
+                        <rect key="frame" x="0.0" y="0.0" width="152" height="338"/>
                         <color key="backgroundColor" red="0.58431372549019611" green="0.59607843137254901" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FTJ-iO-yfZ">
@@ -38,8 +38,8 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txL-vS-xVK">
-                        <rect key="frame" x="0.0" y="272.5" width="152" height="65.5"/>
-                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                        <rect key="frame" x="0.0" y="272.5" width="152" height="17.5"/>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                         <color key="textColor" red="0.58431372549019611" green="0.59607843137254901" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -47,14 +47,14 @@
             </view>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="txL-vS-xVK" secondAttribute="trailing" id="5bu-vg-NRr"/>
-                <constraint firstAttribute="trailing" secondItem="sfR-op-ToE" secondAttribute="trailing" constant="-44" id="CKW-rX-2Fr"/>
+                <constraint firstAttribute="trailing" secondItem="sfR-op-ToE" secondAttribute="trailing" id="CKW-rX-2Fr"/>
                 <constraint firstItem="sfR-op-ToE" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Eo5-ke-exf"/>
                 <constraint firstAttribute="trailing" secondItem="dxo-OH-NkZ" secondAttribute="trailing" id="HCd-tj-v9L"/>
                 <constraint firstItem="sfR-op-ToE" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="HLj-Pk-gPz"/>
                 <constraint firstItem="txL-vS-xVK" firstAttribute="top" secondItem="dxo-OH-NkZ" secondAttribute="bottom" constant="12" id="NYS-fZ-uLH"/>
                 <constraint firstAttribute="bottom" secondItem="sfR-op-ToE" secondAttribute="bottom" id="WqG-0f-WxB"/>
                 <constraint firstItem="txL-vS-xVK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="cm5-mC-dsh"/>
-                <constraint firstAttribute="bottom" secondItem="txL-vS-xVK" secondAttribute="bottom" id="f8j-gf-sP1"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="txL-vS-xVK" secondAttribute="bottom" id="f8j-gf-sP1"/>
                 <constraint firstAttribute="top" secondItem="FTJ-iO-yfZ" secondAttribute="top" id="jA8-Mf-v2e"/>
                 <constraint firstItem="dxo-OH-NkZ" firstAttribute="top" secondItem="FTJ-iO-yfZ" secondAttribute="bottom" constant="10" id="l5R-Cm-UIe"/>
                 <constraint firstItem="dxo-OH-NkZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="liK-Gx-58a"/>

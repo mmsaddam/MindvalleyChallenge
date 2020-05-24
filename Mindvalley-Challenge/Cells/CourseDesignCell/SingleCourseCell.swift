@@ -12,8 +12,8 @@ struct SingleCourseCellViewModel {
     let state: State<Media>
 }
 
-
 final class SingleCourseCell: UICollectionViewCell {
+    static let itemWidth: CGFloat = 152.0
     @IBOutlet weak var coverPhoto: UIImageView!
     @IBOutlet weak var eposodeName: UILabel!
     @IBOutlet weak var channelName: UILabel!
@@ -23,6 +23,7 @@ final class SingleCourseCell: UICollectionViewCell {
         super.awakeFromNib()
         coverPhoto.layer.cornerRadius = 4.0
     }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         coverPhoto.image = nil

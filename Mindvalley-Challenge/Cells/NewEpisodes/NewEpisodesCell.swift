@@ -21,9 +21,11 @@ final class NewEpisodesCell: UITableViewCell {
             collectionView.dataSource = self
         }
     }
+    @IBOutlet weak var collectionHeightConstraints: NSLayoutConstraint!
     
     private var loadingCount = 5
     private var viewModel: NewEpisodesCellViewModel?
+    private var layout: HorizontalFlowLayout?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,7 +34,16 @@ final class NewEpisodesCell: UITableViewCell {
     
     private func configureLayout() {
         let layout = HorizontalFlowLayout()
+        layout.itemSize = CGSize(width: SingleCourseCell.itemWidth, height: 380)
         collectionView.collectionViewLayout = layout
+        self.layout = layout
+    }
+    
+    private func updateCollectionHeight(_ height: CGFloat) {
+        layout?.itemSize.height = height
+        layout?.invalidateLayout()
+        collectionHeightConstraints.constant = height
+        setNeedsUpdateConstraints()
     }
 
 }
@@ -43,6 +54,12 @@ extension NewEpisodesCell: CellConfigurable {
 
     func configure(model: NewEpisodesCellViewModel) {
         self.viewModel = model
+        if let height = model.getMaxHeight() {
+            let coverPhotoHeight: CGFloat = 228
+            let itemItemVertialSpacing: CGFloat = 10 + 12
+            let collectionViewHeight = coverPhotoHeight + itemItemVertialSpacing + height
+            updateCollectionHeight(collectionViewHeight)
+        }
         collectionView.reloadData()
     }
 }
@@ -74,4 +91,5 @@ extension NewEpisodesCell: UICollectionViewDataSource {
         }
         return cell
     }
+    
 }
