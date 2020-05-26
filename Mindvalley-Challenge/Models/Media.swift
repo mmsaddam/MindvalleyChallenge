@@ -33,9 +33,10 @@ extension Media {
 }
 
 struct Channel {
-    let id: Int
+    var id: String?
     var title: String?
     var series: [Media] = []
+    var latestMedia: [Media] = []
     var mediaCount: Int?
     var iconUrl: URL?
     var coverUrl: URL?
@@ -43,14 +44,16 @@ struct Channel {
 
 extension Channel {
     init?(_ json: JSON) {
-        guard let id = json["id"] as? Int,
-            let title = json["title"] as? String
+        guard let title = json["title"] as? String
             else { return nil }
         
-        self.id = id
+        self.id = json["id"] as? String
         self.title = title
         if let allSeries = json["series"] as? [JSON] {
             series = allSeries.compactMap(Media.init)
+        }
+        if let allMedia = json["latestMedia"] as? [JSON] {
+            latestMedia = allMedia.compactMap(Media.init)
         }
         if let coverAsset = json["coverAsset"] as? JSON, let urlStr = coverAsset["url"] as? String, let url = URL(string: urlStr) {
             coverUrl = url
@@ -58,6 +61,7 @@ extension Channel {
         if let iconAsset = json["iconAsset"] as? JSON, let urlStr = iconAsset["thumbnailUrl"] as? String, let url = URL(string: urlStr) {
             iconUrl = url
         }
+        mediaCount = json["mediaCount"] as? Int
     }
 }
 

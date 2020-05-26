@@ -9,9 +9,9 @@
 import UIKit
 
 struct ChannelListViewModel {
-    
     public func getSection() -> [SectionProtocol] {
         let episodeSection = NewEpisodesSection()
-        return [episodeSection]
+        let channelSection = ChannelSection()
+        return [episodeSection ,channelSection]
     }
 }
