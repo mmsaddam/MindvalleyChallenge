@@ -45,16 +45,24 @@ final class RESTClient: RESTClientProtocol {
                 do {
                     serializedData = try  JSONSerialization.jsonObject(with: data, options: [])
                 } catch (let error) {
-                    completion(.error(.init(error: error)))
+                    DispatchQueue.main.async {
+                        completion(.error(.init(error: error)))
+                    }
                 }
                 
             }
             if let httpResponse = response as? HTTPURLResponse,
                 (200..<300) ~= httpResponse.statusCode, let data = serializedData as? T  {
-                completion(.success(data))
+                DispatchQueue.main.async {
+                    completion(.success(data))
+                }
+                
             } else {
                 let error = (serializedData as? JSON).flatMap(ServiceError.init) ?? ServiceError.other
-                completion(.error(error))
+                DispatchQueue.main.async {
+                    completion(.error(error))
+                }
+                
             }
         }
         

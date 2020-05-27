@@ -13,6 +13,6 @@ struct ChannelListViewModel {
         let episodeSection = NewEpisodesSection()
         let channelSection = ChannelSection()
         let categorySection = CategorySection()
-        return [categorySection, episodeSection, channelSection]
+        return [episodeSection, channelSection]
     }
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 struct SingleSeriesCellViewModel {
-    let state: State<Media>
+    let media: Media
 }
 
 final class SingleSeriesCell: UICollectionViewCell {
@@ -17,7 +17,6 @@ final class SingleSeriesCell: UICollectionViewCell {
     
     @IBOutlet weak var coverPhoto: UIImageView!
     @IBOutlet weak var eposodeName: UILabel!
-    @IBOutlet weak var loadingView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,18 +34,9 @@ extension SingleSeriesCell: CellConfigurable {
     typealias ModelType = SingleSeriesCellViewModel
     
     func configure(model: SingleSeriesCellViewModel) {
-        if case let .loaded(episode) = model.state {
-            loadingView.isHidden = true
-            sendSubviewToBack(loadingView)
-            if let url = episode.coverUrl {
-                coverPhoto.loadImage(url, placeHolder: nil)
-            }
-            eposodeName.text = episode.title
-            
-        } else {
-            bringSubviewToFront(loadingView)
-            loadingView.isHidden = false
+        if let url = model.media.coverUrl {
+            coverPhoto.loadImage(url)
         }
-        
+        eposodeName.text = model.media.title
     }
 }

@@ -14,16 +14,12 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="SingleCourseCell" customModule="Mindvalley_Challenge" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="152" height="338"/>
+            <rect key="frame" x="0.0" y="0.0" width="152" height="290"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="152" height="338"/>
+                <rect key="frame" x="0.0" y="0.0" width="152" height="290"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sfR-op-ToE">
-                        <rect key="frame" x="0.0" y="0.0" width="152" height="338"/>
-                        <color key="backgroundColor" red="0.58431372549019611" green="0.59607843137254901" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="FTJ-iO-yfZ">
                         <rect key="frame" x="0.0" y="0.0" width="152" height="228"/>
                         <color key="backgroundColor" red="0.58431372550000005" green="0.59607843140000005" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -48,12 +44,8 @@
             <color key="backgroundColor" red="0.1019607843" green="0.1137254902" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="txL-vS-xVK" secondAttribute="trailing" id="5bu-vg-NRr"/>
-                <constraint firstAttribute="trailing" secondItem="sfR-op-ToE" secondAttribute="trailing" id="CKW-rX-2Fr"/>
-                <constraint firstItem="sfR-op-ToE" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Eo5-ke-exf"/>
                 <constraint firstAttribute="trailing" secondItem="dxo-OH-NkZ" secondAttribute="trailing" id="HCd-tj-v9L"/>
-                <constraint firstItem="sfR-op-ToE" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="HLj-Pk-gPz"/>
                 <constraint firstItem="txL-vS-xVK" firstAttribute="top" secondItem="dxo-OH-NkZ" secondAttribute="bottom" constant="12" id="NYS-fZ-uLH"/>
-                <constraint firstAttribute="bottom" secondItem="sfR-op-ToE" secondAttribute="bottom" id="WqG-0f-WxB"/>
                 <constraint firstItem="txL-vS-xVK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="cm5-mC-dsh"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="txL-vS-xVK" secondAttribute="bottom" id="f8j-gf-sP1"/>
                 <constraint firstAttribute="top" secondItem="FTJ-iO-yfZ" secondAttribute="top" id="jA8-Mf-v2e"/>
@@ -63,7 +55,7 @@
                 <constraint firstItem="FTJ-iO-yfZ" firstAttribute="trailing" secondItem="gTV-IL-0wX" secondAttribute="trailing" id="qO4-Q8-MJU"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="dxo-OH-NkZ" secondAttribute="bottom" id="yeU-tB-lwW"/>
             </constraints>
-            <size key="customSize" width="147" height="338"/>
+            <size key="customSize" width="147" height="295"/>
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="yeU-tB-lwW"/>
@@ -72,12 +64,9 @@
             <connections>
                 <outlet property="channelName" destination="txL-vS-xVK" id="hdu-Dy-jn3"/>
                 <outlet property="coverPhoto" destination="FTJ-iO-yfZ" id="L6V-SO-OtR"/>
-                <outlet property="episodeNameBottomConstraints" destination="NYS-fZ-uLH" id="d8E-af-YEB"/>
                 <outlet property="eposodeName" destination="dxo-OH-NkZ" id="Pob-SO-NGJ"/>
-                <outlet property="loadingView" destination="sfR-op-ToE" id="47s-nn-LAS"/>
-                <outlet property="noChannelNameConstraints" destination="yeU-tB-lwW" id="NXn-xa-BQa"/>
             </connections>
-            <point key="canvasLocation" x="134.78260869565219" y="85.714285714285708"/>
+            <point key="canvasLocation" x="134.78260869565219" y="71.316964285714278"/>
         </collectionViewCell>
     </objects>
     <resources>

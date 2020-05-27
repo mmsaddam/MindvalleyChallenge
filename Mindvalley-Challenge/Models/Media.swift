@@ -41,6 +41,9 @@ struct Channel {
     var iconUrl: URL?
     var coverUrl: URL?
 }
+extension Channel {
+    var isSeries: Bool { series.count  > 0 }
+}
 
 extension Channel {
     init?(_ json: JSON) {

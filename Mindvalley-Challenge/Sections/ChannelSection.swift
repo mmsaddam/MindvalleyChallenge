@@ -35,35 +35,29 @@ final class ChannelSection {
         delegate?.sectionDidUpdated(self)
     }
     
-    private func getViewModel(for indexPath: IndexPath) -> ChannelCourseDesignCellViewModel? {
-        if isLoading {
-            return ChannelCourseDesignCellViewModel(state: .loading)
+
+    private func textHight(for media: Media, width: CGFloat) -> CGFloat {
+        let titleFont = UIFont(name: "Roboto-Regular", size: 17)!
+        let titleHeight = media.title.getHeight(for: width , font: titleFont)
+        return titleHeight
+    }
+    
+    private func getFixHeight(_ isSeries: Bool) -> CGFloat {
+        let topViewHeight: CGFloat = 82.0
+        let colTopMargin: CGFloat = 8.0
+        let colBottomMargin: CGFloat = 8.0
+        let coverPhotoHeight: CGFloat = isSeries ? 172.0 : 228.0
+        let itemSpacing: CGFloat = 10
+        let totlaHeight = topViewHeight + colTopMargin + colBottomMargin + coverPhotoHeight + itemSpacing
+        return totlaHeight
+    }
+    
+    private func getMaxMediaTitleHeight(for channel: Channel) -> CGFloat {
+        if channel.isSeries {
+            return channel.series.map { textHight(for: $0, width: SingleSeriesCell.itemWidth) }.max() ?? 0.0
         } else {
-            if channels.indices.contains(indexPath.row) {
-                let channel = channels[indexPath.row]
-                return ChannelCourseDesignCellViewModel(state: .loaded(channel))
-            }
-            
+            return channel.latestMedia.map { textHight(for: $0, width: SingleCourseCell.itemWidth) }.max() ?? 0.0
         }
-        return nil
-    }
-    
-    private func channel(for indexPath: IndexPath) -> Channel? {
-        guard !isLoading else { return nil }
-        if channels.indices.contains(indexPath.row) {
-            let channel = channels[indexPath.row]
-            return channel
-        }
-        return nil
-    }
-    
-    
-    private func isSeries(_ indexPath: IndexPath) -> Bool {
-        if channels.indices.contains(indexPath.row) {
-            let channel = channels[indexPath.row]
-            return channel.series.count > 0
-        }
-        return false
     }
     
 }
@@ -85,35 +79,31 @@ extension ChannelSection: SectionProtocol {
     }
     
     func numberOfRows() -> Int {
-        if isLoading {
-            return loadingCount
-        } else {
-            return channels.count
-        }
+        return channels.count
     }
     
     func cellForRow(at indexPath: IndexPath) -> UITableViewCell {
         guard let table = tableView else { fatalError("tableView for episode section not found") }
+        let channel = channels[indexPath.row]
         
-        if let channel = channel(for: indexPath) {
-            if channel.series.count > 0 {
-                let cell = table.dequeueReusableCell(withIdentifier: SeriesTableCell.reuseID(), for: indexPath) as! SeriesTableCell
-                let viewModel = SeriesTableCellViewModel(state: .loaded(channel))
-                cell.configure(model: viewModel)
-                return cell
-            } else {
-                let cell = table.dequeueReusableCell(withIdentifier: ChannelCourseDesignCell.reuseID(), for: indexPath) as! ChannelCourseDesignCell
-                let viewModel = ChannelCourseDesignCellViewModel(state: .loaded(channel))
-                cell.configure(model: viewModel)
-                return cell
-            }
+        if channel.isSeries{
+            let cell = table.dequeueReusableCell(withIdentifier: SeriesTableCell.reuseID(), for: indexPath) as! SeriesTableCell
+            let viewModel = SeriesTableCellViewModel(channel: channel)
+            cell.configure(model: viewModel)
+            return cell
         } else {
             let cell = table.dequeueReusableCell(withIdentifier: ChannelCourseDesignCell.reuseID(), for: indexPath) as! ChannelCourseDesignCell
-            let viewModel = ChannelCourseDesignCellViewModel(state: .loading)
+            let viewModel = ChannelCourseDesignCellViewModel(channel: channel)
             cell.configure(model: viewModel)
             return cell
         }
-        
+    }
+    
+    func heightForRow(at indexPath: IndexPath) -> CGFloat {
+        let channel = channels[indexPath.row]
+        let maxHeight = getMaxMediaTitleHeight(for: channel)
+//        print("indexPath \(indexPath), height: \(getFixHeight(channel.series.count > 0) + maxHeight)")
+        return getFixHeight(channel.isSeries) + maxHeight
     }
     
 }

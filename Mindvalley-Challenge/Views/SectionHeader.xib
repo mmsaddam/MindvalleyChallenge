@@ -18,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Categories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Sh-gC-VKJ">
-                    <rect key="frame" x="15" y="15" width="97" height="25"/>
+                    <rect key="frame" x="15" y="8" width="97" height="39"/>
                     <color key="backgroundColor" red="0.1019607843" green="0.1137254902" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                     <color key="textColor" red="0.58431372550000005" green="0.59607843140000005" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -28,8 +28,8 @@
             <color key="backgroundColor" red="0.1019607843" green="0.1137254902" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8Sh-gC-VKJ" secondAttribute="trailing" constant="15" id="1y8-fq-okl"/>
-                <constraint firstAttribute="bottom" secondItem="8Sh-gC-VKJ" secondAttribute="bottom" constant="15" id="8gA-zg-Zla"/>
-                <constraint firstItem="8Sh-gC-VKJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="JY9-aJ-3HG"/>
+                <constraint firstAttribute="bottom" secondItem="8Sh-gC-VKJ" secondAttribute="bottom" constant="8" id="8gA-zg-Zla"/>
+                <constraint firstItem="8Sh-gC-VKJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="JY9-aJ-3HG"/>
                 <constraint firstItem="8Sh-gC-VKJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="V5T-m0-fhg"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

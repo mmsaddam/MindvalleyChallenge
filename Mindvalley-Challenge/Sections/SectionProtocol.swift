@@ -19,6 +19,7 @@ protocol SectionProtocol: class {
     func setup(for tableView: UITableView?) -> Self
     func numberOfRows() -> Int
     func cellForRow(at indexPath: IndexPath) -> UITableViewCell
+    func heightForRow(at indexPath: IndexPath) -> CGFloat
     func heightForHeaderInSection() -> CGFloat
     func viewForHeaderInSection() -> UIView?
     
@@ -27,6 +28,7 @@ protocol SectionProtocol: class {
 }
 
 extension SectionProtocol {
+    func heightForRow(at indexPath: IndexPath) -> CGFloat { return UITableView.automaticDimension }
     func heightForHeaderInSection() -> CGFloat { return 0.0 }
     func viewForHeaderInSection() -> UIView? { return UIView() }
     func refresh() {}

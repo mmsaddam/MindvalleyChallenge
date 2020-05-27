@@ -9,7 +9,8 @@
 import UIKit
 
 extension UIImageView {
-    func loadImage(_ url: URL, placeHolder: UIImage?) {
+    func loadImage(_ url: URL, placeHolder: UIImage? = UIImage(named: "placeholder")) {
+        self.image = placeHolder
         ImageCache.publicCache.load(url: url as NSURL) { [weak self] (remoteImage) in
             if remoteImage != nil {
                 self?.image = remoteImage

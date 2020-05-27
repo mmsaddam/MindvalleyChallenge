@@ -80,7 +80,17 @@ extension ChannelTableViewDataSource: UITableViewDataSource {
 }
 
 // MARK: - UITableViewDelegate
-extension ChannelTableViewDataSource: UITableViewDelegate { }
+extension ChannelTableViewDataSource: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return sections[indexPath.section].heightForRow(at: indexPath)
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return sections[section].heightForHeaderInSection()
+    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return sections[section].viewForHeaderInSection()
+    }
+}
 
 // MARK: - SectionUpdatingProtocol
 extension ChannelTableViewDataSource: SectionUpdatingProtocol {

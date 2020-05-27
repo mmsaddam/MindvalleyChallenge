@@ -20,11 +20,12 @@ protocol Cacheable {
 final class Cache: Cacheable {
     
     func getData<T>(for key: String) -> T? {
-        UserDefaults.standard.value(forKey: key) as? T
+        return nil
+//        UserDefaults.standard.value(forKey: key) as? T
     }
     
-    func saveData<T>(_ data: T, for key: String) throws -> Void{
-        UserDefaults.standard.set(data, forKey: key)
+    func saveData<T>(_ data: T, for key: String) throws -> Void {
+//        UserDefaults.standard.set(data, forKey: key)
     }
     
 }
