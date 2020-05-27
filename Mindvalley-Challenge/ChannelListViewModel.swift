@@ -12,6 +12,7 @@ struct ChannelListViewModel {
     public func getSection() -> [SectionProtocol] {
         let episodeSection = NewEpisodesSection()
         let channelSection = ChannelSection()
-        return [episodeSection ,channelSection]
+        let categorySection = CategorySection()
+        return [episodeSection, channelSection, categorySection]
     }
 }

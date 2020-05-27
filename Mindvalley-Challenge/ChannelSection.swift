@@ -48,6 +48,24 @@ final class ChannelSection {
         return nil
     }
     
+    private func channel(for indexPath: IndexPath) -> Channel? {
+        guard !isLoading else { return nil }
+        if channels.indices.contains(indexPath.row) {
+            let channel = channels[indexPath.row]
+            return channel
+        }
+        return nil
+    }
+    
+    
+    private func isSeries(_ indexPath: IndexPath) -> Bool {
+        if channels.indices.contains(indexPath.row) {
+            let channel = channels[indexPath.row]
+            return channel.series.count > 0
+        }
+        return false
+    }
+    
 }
 
 extension ChannelSection: SectionProtocol {
@@ -59,6 +77,9 @@ extension ChannelSection: SectionProtocol {
         let bundle = Bundle(for: ChannelCourseDesignCell.self)
         let episodesNib = UINib(nibName: "ChannelCourseDesignCell", bundle: bundle)
         tableView?.register(episodesNib, forCellReuseIdentifier: ChannelCourseDesignCell.reuseID())
+        
+        let seriesCellNib = UINib(nibName: "SeriesTableCell", bundle: bundle)
+        tableView?.register(seriesCellNib, forCellReuseIdentifier: SeriesTableCell.reuseID())
         
         return self
     }
@@ -73,12 +94,26 @@ extension ChannelSection: SectionProtocol {
     
     func cellForRow(at indexPath: IndexPath) -> UITableViewCell {
         guard let table = tableView else { fatalError("tableView for episode section not found") }
-        let cell = table.dequeueReusableCell(withIdentifier: ChannelCourseDesignCell.reuseID(), for: indexPath) as! ChannelCourseDesignCell
-        if let viewModel = getViewModel(for: indexPath) {
+        
+        if let channel = channel(for: indexPath) {
+            if channel.series.count > 0 {
+                let cell = table.dequeueReusableCell(withIdentifier: SeriesTableCell.reuseID(), for: indexPath) as! SeriesTableCell
+                let viewModel = SeriesTableCellViewModel(state: .loaded(channel))
+                cell.configure(model: viewModel)
+                return cell
+            } else {
+                let cell = table.dequeueReusableCell(withIdentifier: ChannelCourseDesignCell.reuseID(), for: indexPath) as! ChannelCourseDesignCell
+                let viewModel = ChannelCourseDesignCellViewModel(state: .loaded(channel))
+                cell.configure(model: viewModel)
+                return cell
+            }
+        } else {
+            let cell = table.dequeueReusableCell(withIdentifier: ChannelCourseDesignCell.reuseID(), for: indexPath) as! ChannelCourseDesignCell
+            let viewModel = ChannelCourseDesignCellViewModel(state: .loading)
             cell.configure(model: viewModel)
+            return cell
         }
         
-        return cell
     }
     
 }
