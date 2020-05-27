@@ -12,7 +12,7 @@ import UIKit
 
 final class NewEpisodesCell: UITableViewCell {
 
-    @IBOutlet weak var collectionView: CompactHeightCollectionView! {
+    @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
             collectionView.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
             let nib = UINib(nibName: "SingleCourseCell", bundle: Bundle(for: SingleCourseCell.self))
