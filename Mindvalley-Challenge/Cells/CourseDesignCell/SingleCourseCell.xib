@@ -24,20 +24,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="152" height="338"/>
                         <color key="backgroundColor" red="0.58431372549019611" green="0.59607843137254901" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FTJ-iO-yfZ">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="FTJ-iO-yfZ">
                         <rect key="frame" x="0.0" y="0.0" width="152" height="228"/>
                         <color key="backgroundColor" red="0.58431372550000005" green="0.59607843140000005" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="228" id="nFp-a7-35k"/>
+                            <constraint firstAttribute="height" constant="228" id="nd2-ay-Zx7"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxo-OH-NkZ">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxo-OH-NkZ">
                         <rect key="frame" x="0.0" y="238" width="152" height="22.5"/>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txL-vS-xVK">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txL-vS-xVK">
                         <rect key="frame" x="0.0" y="272.5" width="152" height="17.5"/>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                         <color key="textColor" red="0.58431372549019611" green="0.59607843137254901" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
@@ -45,6 +45,7 @@
                     </label>
                 </subviews>
             </view>
+            <color key="backgroundColor" red="0.1019607843" green="0.1137254902" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="txL-vS-xVK" secondAttribute="trailing" id="5bu-vg-NRr"/>
                 <constraint firstAttribute="trailing" secondItem="sfR-op-ToE" secondAttribute="trailing" id="CKW-rX-2Fr"/>
@@ -60,15 +61,26 @@
                 <constraint firstItem="dxo-OH-NkZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="liK-Gx-58a"/>
                 <constraint firstAttribute="leading" secondItem="FTJ-iO-yfZ" secondAttribute="leading" id="my6-EM-AxU"/>
                 <constraint firstItem="FTJ-iO-yfZ" firstAttribute="trailing" secondItem="gTV-IL-0wX" secondAttribute="trailing" id="qO4-Q8-MJU"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="dxo-OH-NkZ" secondAttribute="bottom" id="yeU-tB-lwW"/>
             </constraints>
             <size key="customSize" width="147" height="338"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="yeU-tB-lwW"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="channelName" destination="txL-vS-xVK" id="hdu-Dy-jn3"/>
                 <outlet property="coverPhoto" destination="FTJ-iO-yfZ" id="L6V-SO-OtR"/>
+                <outlet property="episodeNameBottomConstraints" destination="NYS-fZ-uLH" id="d8E-af-YEB"/>
                 <outlet property="eposodeName" destination="dxo-OH-NkZ" id="Pob-SO-NGJ"/>
                 <outlet property="loadingView" destination="sfR-op-ToE" id="47s-nn-LAS"/>
+                <outlet property="noChannelNameConstraints" destination="yeU-tB-lwW" id="NXn-xa-BQa"/>
             </connections>
             <point key="canvasLocation" x="134.78260869565219" y="85.714285714285708"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="placeholder" width="91.666664123535156" height="61"/>
+    </resources>
 </document>

@@ -12,7 +12,7 @@ import UIKit
 
 final class NewEpisodesCell: UITableViewCell {
 
-    @IBOutlet weak var collectionView: UICollectionView! {
+    @IBOutlet weak var collectionView: CompactHeightCollectionView! {
         didSet {
             collectionView.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
             let nib = UINib(nibName: "SingleCourseCell", bundle: Bundle(for: SingleCourseCell.self))
@@ -82,10 +82,10 @@ extension NewEpisodesCell: UICollectionViewDataSource {
             
             if case let .loaded(episodes) = state {
                 let episode = episodes[indexPath.row]
-                let viewModel = SingleCourseCellViewModel(state: .loaded(episode))
+                let viewModel = SingleCourseCellViewModel(state: .loaded(episode), cellType: .episode)
                 cell.configure(model: viewModel)
             } else {
-                let viewModel = SingleCourseCellViewModel(state: .loading)
+                let viewModel = SingleCourseCellViewModel(state: .loading, cellType: .episode)
                 cell.configure(model: viewModel)
             }
         }

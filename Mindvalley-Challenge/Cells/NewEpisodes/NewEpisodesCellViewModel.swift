@@ -30,7 +30,6 @@ struct NewEpisodesCellViewModel {
             let channelHeight = channelTitle.getHeight(for: width, font: channelFont)
             totalHeight += channelHeight
         }
-//        print(media.title, media.channelTitle, totalHeight)
         return totalHeight
         
     }

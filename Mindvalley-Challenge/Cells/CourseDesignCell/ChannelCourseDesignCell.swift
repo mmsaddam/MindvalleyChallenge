@@ -67,10 +67,6 @@ final class ChannelCourseDesignCell: UITableViewCell {
             let nib = UINib(nibName: "SingleCourseCell", bundle: Bundle(for: SingleCourseCell.self))
             collectionView.register(nib, forCellWithReuseIdentifier:
                 "SingleCourseCell")
-            let seriesNib = UINib(nibName: "SingleSeriesCell", bundle: Bundle(for: SingleSeriesCell.self))
-                       collectionView.register(seriesNib, forCellWithReuseIdentifier:
-                           "SingleSeriesCell")
-                      
             collectionView.dataSource = self
         }
     }
@@ -100,7 +96,7 @@ final class ChannelCourseDesignCell: UITableViewCell {
         collectionHeightConstraints.constant = height
         setNeedsUpdateConstraints()
     }
-
+    
 }
 
 // MARK: - CellConfigurable

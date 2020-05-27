@@ -9,7 +9,12 @@
 import UIKit
 
 struct SingleCourseCellViewModel {
+    enum CellType {
+        case channel
+        case episode
+    }
     let state: State<Media>
+    let cellType: CellType 
 }
 
 final class SingleCourseCell: UICollectionViewCell {
@@ -18,7 +23,9 @@ final class SingleCourseCell: UICollectionViewCell {
     @IBOutlet weak var eposodeName: UILabel!
     @IBOutlet weak var channelName: UILabel!
     @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var noChannelNameConstraints: NSLayoutConstraint!
     
+    @IBOutlet weak var episodeNameBottomConstraints: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
         coverPhoto.layer.cornerRadius = 4.0
@@ -26,15 +33,27 @@ final class SingleCourseCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        coverPhoto.image = nil
+        coverPhoto.image = UIImage(named: "placeholder")
     }
-
+    
 }
 
 extension SingleCourseCell: CellConfigurable {
     typealias ModelType = SingleCourseCellViewModel
     
     func configure(model: SingleCourseCellViewModel) {
+        let channelNameConstraints = channelName.constraints
+        if model.cellType == .channel {
+            channelName.isHidden = true
+            NSLayoutConstraint.deactivate(channelNameConstraints)
+            noChannelNameConstraints.isActive = true
+            episodeNameBottomConstraints.isActive = false
+        } else {
+            channelName.isHidden = false
+            NSLayoutConstraint.activate(channelNameConstraints)
+            episodeNameBottomConstraints.isActive = true
+            noChannelNameConstraints.isActive = false
+        }
         if case let .loaded(episode) = model.state {
             loadingView.isHidden = true
             sendSubviewToBack(loadingView)
@@ -47,5 +66,6 @@ extension SingleCourseCell: CellConfigurable {
             bringSubviewToFront(loadingView)
             loadingView.isHidden = false
         }
+        setNeedsUpdateConstraints()
     }
 }
