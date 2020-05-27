@@ -54,6 +54,18 @@ extension CategorySection: SectionProtocol {
         return categories.count > 0 ? 1 : 0
     }
     
+    func heightForHeaderInSection() -> CGFloat {
+        let header = SectionHeader.loadFromNib()
+        header.title = "Categories"
+        return header.bounds.size.height
+    }
+    
+    func viewForHeaderInSection() -> UIView? {
+        let header = SectionHeader.loadFromNib()
+        header.title = "Categories"
+        return header
+    }
+    
     func cellForRow(at indexPath: IndexPath) -> UITableViewCell {
         guard let table = tableView else { fatalError("tableView for category section not found") }
         let cell = table.dequeueReusableCell(withIdentifier: CategoryTableCell.reuseID(), for: indexPath) as! CategoryTableCell

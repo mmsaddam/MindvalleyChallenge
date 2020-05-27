@@ -9,13 +9,14 @@
 import UIKit
 
 class SectionHeader: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    @IBOutlet weak var titleLabel: UILabel!
+    var title: String? {
+        didSet {
+            titleLabel?.text = title
+        }
     }
-    */
-
+    class func loadFromNib() -> SectionHeader {
+        return Bundle(for: SectionHeader.self).loadNibNamed("SectionHeader", owner: nil, options: [:])?.first! as! SectionHeader
+    }
+    
 }
