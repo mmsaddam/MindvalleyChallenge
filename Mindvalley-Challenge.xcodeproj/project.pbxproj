@@ -20,11 +20,7 @@
 		4A5A42E72475402D00180BE5 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5A42E62475402D00180BE5 /* Media.swift */; };
 		4A5EEB382477854C00403FF3 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5EEB372477854C00403FF3 /* DataProvider.swift */; };
 		4A5EEB3D24778D0C00403FF3 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5EEB3C24778D0C00403FF3 /* Cache.swift */; };
-		4A722D5A247A72C400AB996E /* ChannelCourseDesignCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A722D58247A72C400AB996E /* ChannelCourseDesignCell.swift */; };
-		4A722D5B247A72C400AB996E /* ChannelCourseDesignCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A722D59247A72C400AB996E /* ChannelCourseDesignCell.xib */; };
 		4A722D5D247A80DD00AB996E /* ChannelSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A722D5C247A80DD00AB996E /* ChannelSection.swift */; };
-		4A722D60247CEED000AB996E /* SeriesTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A722D5E247CEED000AB996E /* SeriesTableCell.swift */; };
-		4A722D61247CEED000AB996E /* SeriesTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A722D5F247CEED000AB996E /* SeriesTableCell.xib */; };
 		4A722D65247E436200AB996E /* CategorySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A722D64247E436200AB996E /* CategorySection.swift */; };
 		4A722D68247E440700AB996E /* CategoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A722D66247E440700AB996E /* CategoryTableCell.swift */; };
 		4A722D69247E440700AB996E /* CategoryTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A722D67247E440700AB996E /* CategoryTableCell.xib */; };
@@ -45,6 +41,10 @@
 		4A73ABC4247A456300ACEE6F /* String+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A73ABC3247A456300ACEE6F /* String+Extras.swift */; };
 		4AB2A85A247F7B610021BD8E /* SingleEpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2A858247F7B610021BD8E /* SingleEpisodeCell.swift */; };
 		4AB2A85B247F7B610021BD8E /* SingleEpisodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AB2A859247F7B610021BD8E /* SingleEpisodeCell.xib */; };
+		4AB2A85F247FF4E60021BD8E /* TableViewCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AB2A85D247FF4E60021BD8E /* TableViewCourseCell.xib */; };
+		4AB2A860247FF4E60021BD8E /* TableViewCourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2A85E247FF4E60021BD8E /* TableViewCourseCell.swift */; };
+		4AB2A864247FF67A0021BD8E /* TableViewSeriesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AB2A862247FF67A0021BD8E /* TableViewSeriesCell.xib */; };
+		4AB2A865247FF67A0021BD8E /* TableViewSeriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2A863247FF67A0021BD8E /* TableViewSeriesCell.swift */; };
 		4AC144C82478D3A5007940E8 /* JSON+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC144C72478D3A5007940E8 /* JSON+Extras.swift */; };
 		4AC144CA2478D404007940E8 /* DataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC144C92478D404007940E8 /* DataProviderTests.swift */; };
 		4AC144CE247966DB007940E8 /* ChannelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC144CD247966DB007940E8 /* ChannelListViewController.swift */; };
@@ -87,11 +87,7 @@
 		4A5A42E62475402D00180BE5 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		4A5EEB372477854C00403FF3 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		4A5EEB3C24778D0C00403FF3 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
-		4A722D58247A72C400AB996E /* ChannelCourseDesignCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCourseDesignCell.swift; sourceTree = "<group>"; };
-		4A722D59247A72C400AB996E /* ChannelCourseDesignCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelCourseDesignCell.xib; sourceTree = "<group>"; };
 		4A722D5C247A80DD00AB996E /* ChannelSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelSection.swift; sourceTree = "<group>"; };
-		4A722D5E247CEED000AB996E /* SeriesTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesTableCell.swift; sourceTree = "<group>"; };
-		4A722D5F247CEED000AB996E /* SeriesTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeriesTableCell.xib; sourceTree = "<group>"; };
 		4A722D64247E436200AB996E /* CategorySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySection.swift; sourceTree = "<group>"; };
 		4A722D66247E440700AB996E /* CategoryTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableCell.swift; sourceTree = "<group>"; };
 		4A722D67247E440700AB996E /* CategoryTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableCell.xib; sourceTree = "<group>"; };
@@ -111,6 +107,10 @@
 		4A73ABC3247A456300ACEE6F /* String+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extras.swift"; sourceTree = "<group>"; };
 		4AB2A858247F7B610021BD8E /* SingleEpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleEpisodeCell.swift; sourceTree = "<group>"; };
 		4AB2A859247F7B610021BD8E /* SingleEpisodeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleEpisodeCell.xib; sourceTree = "<group>"; };
+		4AB2A85D247FF4E60021BD8E /* TableViewCourseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCourseCell.xib; sourceTree = "<group>"; };
+		4AB2A85E247FF4E60021BD8E /* TableViewCourseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCourseCell.swift; sourceTree = "<group>"; };
+		4AB2A862247FF67A0021BD8E /* TableViewSeriesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewSeriesCell.xib; sourceTree = "<group>"; };
+		4AB2A863247FF67A0021BD8E /* TableViewSeriesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSeriesCell.swift; sourceTree = "<group>"; };
 		4AC144C72478D3A5007940E8 /* JSON+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSON+Extras.swift"; sourceTree = "<group>"; };
 		4AC144C92478D404007940E8 /* DataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderTests.swift; sourceTree = "<group>"; };
 		4AC144CD247966DB007940E8 /* ChannelListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListViewController.swift; sourceTree = "<group>"; };
@@ -257,15 +257,15 @@
 			path = CellUtility;
 			sourceTree = "<group>";
 		};
-		4A73ABB1247A272900ACEE6F /* CourseDesignCell */ = {
+		4A73ABB1247A272900ACEE6F /* Course */ = {
 			isa = PBXGroup;
 			children = (
-				4A722D58247A72C400AB996E /* ChannelCourseDesignCell.swift */,
-				4A722D59247A72C400AB996E /* ChannelCourseDesignCell.xib */,
+				4AB2A85E247FF4E60021BD8E /* TableViewCourseCell.swift */,
+				4AB2A85D247FF4E60021BD8E /* TableViewCourseCell.xib */,
 				4A73ABB2247A288B00ACEE6F /* SingleCourseCell.swift */,
 				4A73ABB3247A288B00ACEE6F /* SingleCourseCell.xib */,
 			);
-			path = CourseDesignCell;
+			path = Course;
 			sourceTree = "<group>";
 		};
 		4A73ABBC247A39D000ACEE6F /* ImageCache */ = {
@@ -297,6 +297,17 @@
 			path = CustomLayout;
 			sourceTree = "<group>";
 		};
+		4AB2A861247FF5070021BD8E /* Series */ = {
+			isa = PBXGroup;
+			children = (
+				4AB2A863247FF67A0021BD8E /* TableViewSeriesCell.swift */,
+				4AB2A862247FF67A0021BD8E /* TableViewSeriesCell.xib */,
+				4AC144DA24797EAA007940E8 /* SingleSeriesCell.swift */,
+				4AC144DB24797EAA007940E8 /* SingleSeriesCell.xib */,
+			);
+			path = Series;
+			sourceTree = "<group>";
+		};
 		4AC144CB2478D765007940E8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,11 +331,8 @@
 				4A722D70247E75D100AB996E /* SectionHeader.swift */,
 				4A722D72247E75E900AB996E /* SectionHeader.xib */,
 				4A73ABBF247A41B500ACEE6F /* NewEpisodes */,
-				4AC144DA24797EAA007940E8 /* SingleSeriesCell.swift */,
-				4AC144DB24797EAA007940E8 /* SingleSeriesCell.xib */,
-				4A722D5E247CEED000AB996E /* SeriesTableCell.swift */,
-				4A722D5F247CEED000AB996E /* SeriesTableCell.xib */,
-				4A73ABB1247A272900ACEE6F /* CourseDesignCell */,
+				4AB2A861247FF5070021BD8E /* Series */,
+				4A73ABB1247A272900ACEE6F /* Course */,
 				4A722D6E247E74DB00AB996E /* Category */,
 			);
 			path = Views;
@@ -425,16 +433,16 @@
 				4A73ABB5247A288B00ACEE6F /* SingleCourseCell.xib in Resources */,
 				4AC144E6247A126F007940E8 /* Roboto-Regular.ttf in Resources */,
 				4A5A42C62474EB1700180BE5 /* LaunchScreen.storyboard in Resources */,
+				4AB2A85F247FF4E60021BD8E /* TableViewCourseCell.xib in Resources */,
 				4A722D69247E440700AB996E /* CategoryTableCell.xib in Resources */,
 				4AB2A85B247F7B610021BD8E /* SingleEpisodeCell.xib in Resources */,
 				4AC144E124798601007940E8 /* NewEpisodesCell.xib in Resources */,
+				4AB2A864247FF67A0021BD8E /* TableViewSeriesCell.xib in Resources */,
 				4A722D73247E75E900AB996E /* SectionHeader.xib in Resources */,
 				4A73ABA9247A142200ACEE6F /* SingleSeriesCell.xib in Resources */,
-				4A722D61247CEED000AB996E /* SeriesTableCell.xib in Resources */,
 				4AC144E8247A126F007940E8 /* Roboto-Bold.ttf in Resources */,
 				4A5A42C32474EB1700180BE5 /* Assets.xcassets in Resources */,
 				4A5A42C12474EB1400180BE5 /* Main.storyboard in Resources */,
-				4A722D5B247A72C400AB996E /* ChannelCourseDesignCell.xib in Resources */,
 				4A722D6D247E471B00AB996E /* SingleCategoryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -455,16 +463,17 @@
 			files = (
 				4AC144D224797B43007940E8 /* SectionProtocol.swift in Sources */,
 				4AC144C82478D3A5007940E8 /* JSON+Extras.swift in Sources */,
+				4AB2A865247FF67A0021BD8E /* TableViewSeriesCell.swift in Sources */,
 				4A5A42E2247523C000180BE5 /* Result.swift in Sources */,
 				4A5A42E02475238000180BE5 /* ServiceError.swift in Sources */,
 				4A73ABAE247A167000ACEE6F /* CellConfigurable.swift in Sources */,
 				4A73ABBE247A3A0800ACEE6F /* UIImageView+Cache.swift in Sources */,
 				4A5EEB382477854C00403FF3 /* DataProvider.swift in Sources */,
 				4A722D6C247E471B00AB996E /* SingleCategoryCell.swift in Sources */,
+				4AB2A860247FF4E60021BD8E /* TableViewCourseCell.swift in Sources */,
 				4A5A42E72475402D00180BE5 /* Media.swift in Sources */,
 				4A73ABB0247A16F800ACEE6F /* NewEpisodesCellViewModel.swift in Sources */,
 				4A73ABB7247A2D1200ACEE6F /* ChannelTableViewDataSource.swift in Sources */,
-				4A722D60247CEED000AB996E /* SeriesTableCell.swift in Sources */,
 				4A5A42DE2475232E00180BE5 /* RESTClient.swift in Sources */,
 				4AC144D02479794B007940E8 /* ChannelListViewModel.swift in Sources */,
 				4A722D68247E440700AB996E /* CategoryTableCell.swift in Sources */,
@@ -476,7 +485,6 @@
 				4A5A42BA2474EB1400180BE5 /* AppDelegate.swift in Sources */,
 				4A73ABAC247A15D500ACEE6F /* CellReuseable.swift in Sources */,
 				4A73ABC4247A456300ACEE6F /* String+Extras.swift in Sources */,
-				4A722D5A247A72C400AB996E /* ChannelCourseDesignCell.swift in Sources */,
 				4A722D65247E436200AB996E /* CategorySection.swift in Sources */,
 				4AC144E024798601007940E8 /* NewEpisodesCell.swift in Sources */,
 				4A722D5D247A80DD00AB996E /* ChannelSection.swift in Sources */,

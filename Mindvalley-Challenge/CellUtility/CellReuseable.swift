@@ -17,3 +17,9 @@ extension UITableViewCell: CellReuseable {
         return String(describing: self)
     }
 }
+
+extension UICollectionViewCell: CellReuseable {
+    static func reuseID() -> String {
+        return String(describing: self)
+    }
+}

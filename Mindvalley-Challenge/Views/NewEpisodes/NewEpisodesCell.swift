@@ -65,7 +65,7 @@ extension NewEpisodesCell: UICollectionViewDataSource {
     }
       
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SingleEpisodeCell",
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SingleEpisodeCell.reuseID(),
                                                       for: indexPath) as! SingleEpisodeCell
         if let media = viewModel?.episodes[indexPath.row] {
             let viewModel = SingleEpisodeCellViewModel(media: media)

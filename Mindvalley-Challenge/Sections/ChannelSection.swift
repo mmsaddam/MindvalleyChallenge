@@ -68,12 +68,12 @@ extension ChannelSection: SectionProtocol {
             self.tableView = tableView
         }
         
-        let bundle = Bundle(for: ChannelCourseDesignCell.self)
-        let episodesNib = UINib(nibName: "ChannelCourseDesignCell", bundle: bundle)
-        tableView?.register(episodesNib, forCellReuseIdentifier: ChannelCourseDesignCell.reuseID())
+        let bundle = Bundle(for: TableViewCourseCell.self)
+        let episodesNib = UINib(nibName: "TableViewCourseCell", bundle: bundle)
+        tableView?.register(episodesNib, forCellReuseIdentifier: TableViewCourseCell.reuseID())
         
-        let seriesCellNib = UINib(nibName: "SeriesTableCell", bundle: bundle)
-        tableView?.register(seriesCellNib, forCellReuseIdentifier: SeriesTableCell.reuseID())
+        let seriesCellNib = UINib(nibName: "TableViewSeriesCell", bundle: bundle)
+        tableView?.register(seriesCellNib, forCellReuseIdentifier: TableViewSeriesCell.reuseID())
         
         return self
     }
@@ -87,13 +87,13 @@ extension ChannelSection: SectionProtocol {
         let channel = channels[indexPath.row]
         
         if channel.isSeries{
-            let cell = table.dequeueReusableCell(withIdentifier: SeriesTableCell.reuseID(), for: indexPath) as! SeriesTableCell
-            let viewModel = SeriesTableCellViewModel(channel: channel)
+            let cell = table.dequeueReusableCell(withIdentifier: TableViewSeriesCell.reuseID(), for: indexPath) as! TableViewSeriesCell
+            let viewModel = TableViewSeriesCellViewModel(channel: channel)
             cell.configure(model: viewModel)
             return cell
         } else {
-            let cell = table.dequeueReusableCell(withIdentifier: ChannelCourseDesignCell.reuseID(), for: indexPath) as! ChannelCourseDesignCell
-            let viewModel = ChannelCourseDesignCellViewModel(channel: channel)
+            let cell = table.dequeueReusableCell(withIdentifier: TableViewCourseCell.reuseID(), for: indexPath) as! TableViewCourseCell
+            let viewModel = TableViewCourseCellViewModel(channel: channel)
             cell.configure(model: viewModel)
             return cell
         }

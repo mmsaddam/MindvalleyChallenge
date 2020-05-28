@@ -8,8 +8,7 @@
 
 import UIKit
 
-struct ChannelCourseDesignCellViewModel {
-    
+struct TableViewCourseCellViewModel {
     let channel: Channel
     
     func getMaxHeight() -> CGFloat? {
@@ -42,7 +41,7 @@ struct ChannelCourseDesignCellViewModel {
 }
 
 
-final class ChannelCourseDesignCell: UITableViewCell {
+final class TableViewCourseCell: UITableViewCell {
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var channelTitle: UILabel!
     @IBOutlet weak var channelImage: UIImageView!
@@ -51,13 +50,13 @@ final class ChannelCourseDesignCell: UITableViewCell {
             collectionView.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
             let nib = UINib(nibName: "SingleCourseCell", bundle: Bundle(for: SingleCourseCell.self))
             collectionView.register(nib, forCellWithReuseIdentifier:
-                "SingleCourseCell")
+                SingleCourseCell.reuseID())
             collectionView.dataSource = self
         }
     }
     
     private var loadingCount = 5
-    private var viewModel: ChannelCourseDesignCellViewModel?
+    private var viewModel: TableViewCourseCellViewModel?
     private var layout: HorizontalFlowLayout?
     
     override func awakeFromNib() {
@@ -83,10 +82,10 @@ final class ChannelCourseDesignCell: UITableViewCell {
 }
 
 // MARK: - CellConfigurable
-extension ChannelCourseDesignCell: CellConfigurable {
-    typealias ModelType = ChannelCourseDesignCellViewModel
+extension TableViewCourseCell: CellConfigurable {
+    typealias ModelType = TableViewCourseCellViewModel
 
-    func configure(model: ChannelCourseDesignCellViewModel) {
+    func configure(model: TableViewCourseCellViewModel) {
         self.viewModel = model
         if let url = model.iconUrl {
             channelImage.loadImage(url)
@@ -101,13 +100,13 @@ extension ChannelCourseDesignCell: CellConfigurable {
 
 // MARK: - UICollectionViewDataSource
 
-extension ChannelCourseDesignCell: UICollectionViewDataSource {
+extension TableViewCourseCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel?.mediaList.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SingleCourseCell",
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SingleCourseCell.reuseID(),
                                                       for: indexPath) as! SingleCourseCell
         if let media = viewModel?.mediaList[indexPath.row] {
             let viewModel = SingleCourseCellViewModel(media: media)

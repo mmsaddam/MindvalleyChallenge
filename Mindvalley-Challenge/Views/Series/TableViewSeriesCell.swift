@@ -1,5 +1,5 @@
 //
-//  SeriesTableCell.swift
+//  TableViewSeriesCell.swift
 //  Mindvalley-Challenge
 //
 //  Created by Muzahidul Islam on 26/5/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct SeriesTableCellViewModel {
+struct TableViewSeriesCellViewModel {
     
     let channel: Channel
     
@@ -42,7 +42,7 @@ struct SeriesTableCellViewModel {
 }
 
 
-class SeriesTableCell: UITableViewCell {
+class TableViewSeriesCell: UITableViewCell {
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var channelTitle: UILabel!
     @IBOutlet weak var channelImage: UIImageView!
@@ -51,7 +51,7 @@ class SeriesTableCell: UITableViewCell {
             collectionView.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
             let seriesNib = UINib(nibName: "SingleSeriesCell", bundle: Bundle(for: SingleSeriesCell.self))
                        collectionView.register(seriesNib, forCellWithReuseIdentifier:
-                           "SingleSeriesCell")
+                        SingleSeriesCell.reuseID())
                       
             collectionView.dataSource = self
         }
@@ -59,7 +59,7 @@ class SeriesTableCell: UITableViewCell {
     
     
     private var loadingCount = 5
-    private var viewModel: SeriesTableCellViewModel?
+    private var viewModel: TableViewSeriesCellViewModel?
     private var layout: HorizontalFlowLayout?
     
     override func awakeFromNib() {
@@ -84,10 +84,10 @@ class SeriesTableCell: UITableViewCell {
 }
 
 // MARK: - CellConfigurable
-extension SeriesTableCell: CellConfigurable {
-    typealias ModelType = SeriesTableCellViewModel
+extension TableViewSeriesCell: CellConfigurable {
+    typealias ModelType = TableViewSeriesCellViewModel
 
-    func configure(model: SeriesTableCellViewModel) {
+    func configure(model: TableViewSeriesCellViewModel) {
         self.viewModel = model
         updateCollectionHeight()
         if let url = model.iconUrl {
@@ -103,13 +103,13 @@ extension SeriesTableCell: CellConfigurable {
 
 // MARK: - UICollectionViewDataSource
 
-extension SeriesTableCell: UICollectionViewDataSource {
+extension TableViewSeriesCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel?.mediaList.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SingleSeriesCell",
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SingleSeriesCell.reuseID(),
                                                       for: indexPath) as! SingleSeriesCell
         if let media = viewModel?.mediaList[indexPath.row] {
             let viewModel = SingleSeriesCellViewModel(media: media)
