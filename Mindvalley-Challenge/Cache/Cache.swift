@@ -15,17 +15,25 @@ protocol Cacheable {
 }
 
 /**
- UserDetault Cache
+ UserDetault UserDefaultCache
  */
-final class Cache: Cacheable {
+final class UserDefaultCache: Cacheable {
     
     func getData<T>(for key: String) -> T? {
+        if let data = UserDefaults.standard.value(forKey: key) as? Data {
+            return try? JSONSerialization.jsonObject(with: data, options: []) as? T
+        }
         return nil
-//        UserDefaults.standard.value(forKey: key) as? T
     }
     
     func saveData<T>(_ data: T, for key: String) throws -> Void {
-//        UserDefaults.standard.set(data, forKey: key)
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: data, options: [])
+            UserDefaults.standard.set(jsonData, forKey: key)
+        } catch (let error) {
+            throw error
+        }
+        
     }
     
 }

@@ -33,7 +33,7 @@ fileprivate final class MindValleyDataProvider: DataProviderProtocol {
     
     init() {
         self.restClient = RESTClient(baseUrl: "https://pastebin.com/raw")
-        self.cache = Cache()
+        self.cache = UserDefaultCache()
     }
     
     func getNewEpisodes(_ completion: @escaping ([Media]?) -> Void) {
@@ -96,6 +96,7 @@ fileprivate final class MindValleyDataProvider: DataProviderProtocol {
     // MARK: - Conveninence
     private func saveIntoCache(json: JSON, for key: String) {
         do {
+//            let data = try JSONSerialization.data(withJSONObject: json, options: .fragmentsAllowed)
             try cache.saveData(json, for: key)
         } catch (let error) {
             print(error.localizedDescription)
