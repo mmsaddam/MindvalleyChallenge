@@ -11,10 +11,6 @@ import UIKit
 struct TableViewCourseCellViewModel {
     let channel: Channel
     
-    func getMaxHeight() -> CGFloat? {
-        channel.latestMedia.map { getTextHeight(for: $0) }.max()
-    }
-    
     func getTextHeight(for media: Media) -> CGFloat {
         var totalHeight: CGFloat = 0
         let titleFont = UIFont(name: "Roboto-Regular", size: 17)!
@@ -22,6 +18,14 @@ struct TableViewCourseCellViewModel {
         totalHeight += titleHeight
         
         return totalHeight
+    }
+   
+    
+    func itemMaxHeight() -> CGFloat {
+        let photoHeight: CGFloat = 228.0
+        let spacing: CGFloat = 10.0
+        let textHeight = channel.latestMedia.map { getTextHeight(for: $0) }.max() ?? 22
+        return photoHeight + spacing + textHeight
     }
     
     var mediaList: [Media] {
@@ -54,6 +58,7 @@ final class TableViewCourseCell: UITableViewCell {
             collectionView.dataSource = self
         }
     }
+    @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
     
     private var loadingCount = 5
     private var viewModel: TableViewCourseCellViewModel?
@@ -73,10 +78,11 @@ final class TableViewCourseCell: UITableViewCell {
         self.layout = layout
     }
     
-    private func updateItemSize() {
-        let height = collectionView.bounds.height
+    private func updateItemSize(_ height: CGFloat) {
+        collectionViewHeight.constant = height
         layout?.itemSize.height = height
         layout?.invalidateLayout()
+        setNeedsUpdateConstraints()
     }
     
 }
@@ -93,7 +99,7 @@ extension TableViewCourseCell: CellConfigurable {
         
         channelTitle.text = model.title
         countLabel.text = model.episodes
-        updateItemSize()
+        updateItemSize(model.itemMaxHeight())
         collectionView.reloadData()
     }
 }

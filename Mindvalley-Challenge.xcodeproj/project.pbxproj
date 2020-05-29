@@ -45,6 +45,7 @@
 		4AB2A860247FF4E60021BD8E /* TableViewCourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2A85E247FF4E60021BD8E /* TableViewCourseCell.swift */; };
 		4AB2A864247FF67A0021BD8E /* TableViewSeriesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AB2A862247FF67A0021BD8E /* TableViewSeriesCell.xib */; };
 		4AB2A865247FF67A0021BD8E /* TableViewSeriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2A863247FF67A0021BD8E /* TableViewSeriesCell.swift */; };
+		4AB2A869248098020021BD8E /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2A868248098020021BD8E /* State.swift */; };
 		4AC144C82478D3A5007940E8 /* JSON+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC144C72478D3A5007940E8 /* JSON+Extras.swift */; };
 		4AC144CA2478D404007940E8 /* DataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC144C92478D404007940E8 /* DataProviderTests.swift */; };
 		4AC144CE247966DB007940E8 /* ChannelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC144CD247966DB007940E8 /* ChannelListViewController.swift */; };
@@ -111,6 +112,7 @@
 		4AB2A85E247FF4E60021BD8E /* TableViewCourseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCourseCell.swift; sourceTree = "<group>"; };
 		4AB2A862247FF67A0021BD8E /* TableViewSeriesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewSeriesCell.xib; sourceTree = "<group>"; };
 		4AB2A863247FF67A0021BD8E /* TableViewSeriesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSeriesCell.swift; sourceTree = "<group>"; };
+		4AB2A868248098020021BD8E /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		4AC144C72478D3A5007940E8 /* JSON+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSON+Extras.swift"; sourceTree = "<group>"; };
 		4AC144C92478D404007940E8 /* DataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderTests.swift; sourceTree = "<group>"; };
 		4AC144CD247966DB007940E8 /* ChannelListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListViewController.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				4A5A42E62475402D00180BE5 /* Media.swift */,
+				4AB2A868248098020021BD8E /* State.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 				4A5A42E72475402D00180BE5 /* Media.swift in Sources */,
 				4A73ABB0247A16F800ACEE6F /* NewEpisodesCellViewModel.swift in Sources */,
 				4A73ABB7247A2D1200ACEE6F /* ChannelTableViewDataSource.swift in Sources */,
+				4AB2A869248098020021BD8E /* State.swift in Sources */,
 				4A5A42DE2475232E00180BE5 /* RESTClient.swift in Sources */,
 				4AC144D02479794B007940E8 /* ChannelListViewModel.swift in Sources */,
 				4A722D68247E440700AB996E /* CategoryTableCell.swift in Sources */,

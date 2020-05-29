@@ -44,11 +44,10 @@ final class ChannelSection {
     
     private func getFixHeight(_ isSeries: Bool) -> CGFloat {
         let topViewHeight: CGFloat = 82.0
-        let colTopMargin: CGFloat = 8.0
         let colBottomMargin: CGFloat = 8.0
         let coverPhotoHeight: CGFloat = isSeries ? 172.0 : 228.0
         let itemSpacing: CGFloat = 10
-        let totlaHeight = topViewHeight + colTopMargin + colBottomMargin + coverPhotoHeight + itemSpacing
+        let totlaHeight = topViewHeight + colBottomMargin + coverPhotoHeight + itemSpacing
         return totlaHeight
     }
     
@@ -97,13 +96,6 @@ extension ChannelSection: SectionProtocol {
             cell.configure(model: viewModel)
             return cell
         }
-    }
-    
-    func heightForRow(at indexPath: IndexPath) -> CGFloat {
-        let channel = channels[indexPath.row]
-        let maxHeight = getMaxMediaTitleHeight(for: channel)
-//        print("indexPath \(indexPath), height: \(getFixHeight(channel.series.count > 0) + maxHeight)")
-        return getFixHeight(channel.isSeries) + maxHeight
     }
     
 }

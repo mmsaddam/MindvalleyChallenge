@@ -8,6 +8,60 @@
 
 import UIKit
 
+struct NewEpisodesCellViewModel {
+    let state: State<[Media]>
+    
+    public var isLoading: Bool {
+        if case .loading = state {
+            return true
+        }
+        return false
+    }
+    public var episodes: [Media]? {
+        if case let .loaded(episodes) = state {
+            return episodes
+        }
+        return nil
+    }
+    
+    public func numberOfItems() -> Int {
+        if isLoading {
+            return 5
+        } else {
+            return episodes?.count ?? 0
+        }
+    }
+    
+    private func getMaxHeight() -> CGFloat {
+        let detaultHeight: CGFloat = 32 + 44 // Default title and channel name height
+        guard let episodes = episodes else { return detaultHeight }
+        return episodes.map { getTextHeight(for: $0) }.max() ?? detaultHeight
+    }
+     
+     private func getTextHeight(for media: Media) -> CGFloat {
+         let width = SingleEpisodeCell.itemWidth
+         var totalHeight: CGFloat = 0
+         let titleFont = UIFont(name: "Roboto-Regular", size: 17)!
+         let titleHeight = media.title.getHeight(for: width , font: titleFont)
+         totalHeight += titleHeight
+         if let channelTitle = media.channelTitle {
+             let channelFont = UIFont(name: "Roboto-Regular", size: 13)!
+             let channelHeight = channelTitle.getHeight(for: width, font: channelFont)
+             totalHeight += channelHeight
+         }
+         return totalHeight
+         
+     }
+     
+    func itemMaxHeight() -> CGFloat {
+         let topMargin: CGFloat = 8
+         let bottomMargin: CGFloat = 8
+         let coverPhotoHeight: CGFloat = 228
+         let internItemVertialSpacing: CGFloat = 10 + 12
+         let itemTextHeight = getMaxHeight()
+         return topMargin + bottomMargin + coverPhotoHeight + internItemVertialSpacing + itemTextHeight
+     }
+}
 
 
 final class NewEpisodesCell: UITableViewCell {
@@ -17,10 +71,11 @@ final class NewEpisodesCell: UITableViewCell {
             collectionView.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
             let nib = UINib(nibName: "SingleEpisodeCell", bundle: Bundle(for: SingleEpisodeCell.self))
             collectionView.register(nib, forCellWithReuseIdentifier:
-                "SingleEpisodeCell")
+                SingleEpisodeCell.reuseID())
             collectionView.dataSource = self
         }
     }
+    @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
     
     private var loadingCount = 5
     private var viewModel: NewEpisodesCellViewModel?
@@ -39,9 +94,11 @@ final class NewEpisodesCell: UITableViewCell {
         self.layout = layout
     }
     
-    private func updateItemSize() {
-        layout?.itemSize.height = collectionView.bounds.height
+    private func updateItemSize(_ height: CGFloat) {
+        collectionViewHeight.constant = height
+        layout?.itemSize.height = height
         layout?.invalidateLayout()
+        setNeedsUpdateConstraints()
     }
 
 }
@@ -52,7 +109,7 @@ extension NewEpisodesCell: CellConfigurable {
     
     func configure(model: NewEpisodesCellViewModel) {
         self.viewModel = model
-        updateItemSize()
+        updateItemSize(model.itemMaxHeight())
         collectionView.reloadData()
     }
 }
@@ -61,14 +118,17 @@ extension NewEpisodesCell: CellConfigurable {
 
 extension NewEpisodesCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.episodes.count ?? 0
+        return viewModel?.numberOfItems() ?? 0
     }
       
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SingleEpisodeCell.reuseID(),
                                                       for: indexPath) as! SingleEpisodeCell
-        if let media = viewModel?.episodes[indexPath.row] {
-            let viewModel = SingleEpisodeCellViewModel(media: media)
+        if viewModel?.isLoading == true {
+            let viewModel = SingleEpisodeCellViewModel(state: .loading)
+            cell.configure(model: viewModel)
+        } else if let media = viewModel?.episodes?[indexPath.row] {
+            let viewModel = SingleEpisodeCellViewModel(state: .loaded(media))
             cell.configure(model: viewModel)
         }
         return cell

@@ -12,10 +12,6 @@ struct TableViewSeriesCellViewModel {
     
     let channel: Channel
     
-    func getMaxHeight() -> CGFloat? {
-        channel.series.map { getTextHeight(for: $0) }.max()
-    }
-    
     func getTextHeight(for media: Media) -> CGFloat {
         var totalHeight: CGFloat = 0
         let titleFont = UIFont(name: "Roboto-Regular", size: 17)!
@@ -23,6 +19,13 @@ struct TableViewSeriesCellViewModel {
         totalHeight += titleHeight
         
         return totalHeight
+    }
+    
+    func itemMaxHeight() -> CGFloat {
+        let photoHeight: CGFloat = 172.0
+        let spacing: CGFloat = 10.0
+        let textHeight = channel.series.map { getTextHeight(for: $0) }.max() ?? 22
+        return photoHeight + spacing + textHeight
     }
     
     var mediaList: [Media] {
@@ -56,7 +59,7 @@ class TableViewSeriesCell: UITableViewCell {
             collectionView.dataSource = self
         }
     }
-    
+    @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
     
     private var loadingCount = 5
     private var viewModel: TableViewSeriesCellViewModel?
@@ -75,8 +78,9 @@ class TableViewSeriesCell: UITableViewCell {
         self.layout = layout
     }
     
-    private func updateCollectionHeight() {
-        layout?.itemSize.height = collectionView.bounds.height
+    private func updateCollectionHeight(_ height: CGFloat) {
+        collectionViewHeight.constant = height
+        layout?.itemSize.height = height
         layout?.invalidateLayout()
         setNeedsUpdateConstraints()
     }
@@ -89,7 +93,7 @@ extension TableViewSeriesCell: CellConfigurable {
 
     func configure(model: TableViewSeriesCellViewModel) {
         self.viewModel = model
-        updateCollectionHeight()
+        updateCollectionHeight(model.itemMaxHeight())
         if let url = model.iconUrl {
             channelImage.loadImage(url)
         }

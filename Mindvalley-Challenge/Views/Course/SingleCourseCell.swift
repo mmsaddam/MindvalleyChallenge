@@ -16,7 +16,6 @@ final class SingleCourseCell: UICollectionViewCell {
     static let itemWidth: CGFloat = 152.0
     @IBOutlet weak var coverPhoto: UIImageView!
     @IBOutlet weak var eposodeName: UILabel!
-    @IBOutlet weak var channelName: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,7 +37,6 @@ extension SingleCourseCell: CellConfigurable {
             coverPhoto.loadImage(url)
         }
         eposodeName.text = model.media.title
-        channelName.text = model.media.channelTitle
         setNeedsUpdateConstraints()
     }
 }

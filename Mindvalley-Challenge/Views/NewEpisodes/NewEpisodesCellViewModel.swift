@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct NewEpisodesCellViewModel {
-    let episodes: [Media]
-}
+//struct NewEpisodesCellViewModel {
+//    let episodes: [Media]
+//}
 

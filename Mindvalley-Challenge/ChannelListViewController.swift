@@ -17,7 +17,7 @@ final class ChannelListViewController: UIViewController {
         super.viewDidLoad()
         let viewModel = ChannelListViewModel()
         self.viewModel = viewModel
-        tableView.estimatedRowHeight = 400
+        tableView.estimatedRowHeight = 450.0
         let allSections = viewModel.getSection()
         dataSource = ChannelTableViewDataSource(sections: allSections)
         dataSource?.connect(to: tableView)

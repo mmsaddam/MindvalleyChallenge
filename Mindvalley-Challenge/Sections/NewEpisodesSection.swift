@@ -8,10 +8,6 @@
 
 import UIKit
 
-enum State<T> {
-    case loading
-    case loaded(T)
-}
 
 final class NewEpisodesSection {
     var id: String = "New Episodes"
@@ -39,49 +35,6 @@ final class NewEpisodesSection {
         delegate?.sectionDidUpdated(self)
     }
     
-//    private func getViewModel() -> NewEpisodesCellViewModel {
-//        var state: State<[Media]>
-//        if isLoading {
-//            state = State.loading
-//        } else {
-//            state = .loaded(episodes)
-//        }
-//        return NewEpisodesCellViewModel(state: state)
-//
-//    }
-    
-   private func getMaxHeight() -> CGFloat {
-        let detaultHeight: CGFloat = 32 + 44 // Default title and channel name height
-        if isLoading {
-            return detaultHeight
-        }
-        return episodes.map { getTextHeight(for: $0) }.max() ?? detaultHeight
-    }
-    
-    private func getTextHeight(for media: Media) -> CGFloat {
-        let width = SingleCourseCell.itemWidth
-        var totalHeight: CGFloat = 0
-        let titleFont = UIFont(name: "Roboto-Regular", size: 17)!
-        let titleHeight = media.title.getHeight(for: width , font: titleFont)
-        totalHeight += titleHeight
-        if let channelTitle = media.channelTitle {
-            let channelFont = UIFont(name: "Roboto-Regular", size: 13)!
-            let channelHeight = channelTitle.getHeight(for: width, font: channelFont)
-            totalHeight += channelHeight
-        }
-        return totalHeight
-        
-    }
-    
-   private func cellHeight() -> CGFloat {
-        let topMargin: CGFloat = 8
-        let bottomMargin: CGFloat = 8
-        let coverPhotoHeight: CGFloat = 228
-        let internItemVertialSpacing: CGFloat = 10 + 12
-        let itemTextHeight = getMaxHeight()
-        return topMargin + bottomMargin + coverPhotoHeight + internItemVertialSpacing + itemTextHeight
-    }
-    
 }
 
 extension NewEpisodesSection: SectionProtocol {
@@ -104,13 +57,16 @@ extension NewEpisodesSection: SectionProtocol {
     func cellForRow(at indexPath: IndexPath) -> UITableViewCell {
         guard let table = tableView else { fatalError("tableView for episode section not found") }
         let cell = table.dequeueReusableCell(withIdentifier: NewEpisodesCell.reuseID(), for: indexPath) as! NewEpisodesCell
-        let viewModel = NewEpisodesCellViewModel(episodes: self.episodes)
+        var state: State<[Media]>
+        if isLoading {
+            state = .loading
+        } else {
+            state = .loaded(episodes)
+        }
+        let viewModel = NewEpisodesCellViewModel(state: state)
         cell.configure(model: viewModel)
+        
         return cell
-    }
-    
-    func heightForRow(at indexPath: IndexPath) -> CGFloat {
-        return cellHeight()
     }
     
     func heightForHeaderInSection() -> CGFloat {

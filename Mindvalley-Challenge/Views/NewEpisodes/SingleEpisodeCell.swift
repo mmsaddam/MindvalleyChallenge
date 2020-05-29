@@ -9,8 +9,21 @@
 import UIKit
 
 struct SingleEpisodeCellViewModel {
-    let media: Media
+    let state: State<Media>
+    public var isLoading: Bool {
+        if case .loading = state {
+            return true
+        }
+        return false
+    }
+    var media: Media? {
+        if case let .loaded(media) = state {
+            return media
+        }
+        return nil
+    }
 }
+
 
 
 final class SingleEpisodeCell: UICollectionViewCell {
@@ -35,10 +48,21 @@ extension SingleEpisodeCell: CellConfigurable {
     typealias ModelType = SingleEpisodeCellViewModel
     
     func configure(model: SingleEpisodeCellViewModel) {
-        if let url = model.media.coverUrl {
-            coverPhoto.loadImage(url)
+        if model.isLoading {
+            schemering(true)
+        } else {
+            schemering(false)
+            if let url = model.media?.coverUrl {
+                coverPhoto.loadImage(url)
+            }
+            eposodeName.text = model.media?.title
+            channelName.text = model.media?.channelTitle
         }
-        eposodeName.text = model.media.title
-        channelName.text = model.media.channelTitle
+        
+    }
+    private func schemering(_ isStarted: Bool) {
+        [coverPhoto, eposodeName, channelName].forEach { _ in
+//            isStarted ? $0?.startShimmeringAnimation() : $0?.stopShimmeringAnimation()
+        }
     }
 }
