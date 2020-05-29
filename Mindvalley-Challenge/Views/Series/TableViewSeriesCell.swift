@@ -32,6 +32,10 @@ struct TableViewSeriesCellViewModel {
         channel.series
     }
     
+    var itemCount: Int {
+        return min(mediaList.count, 6)
+    }
+    
     var iconUrl: URL? {
         channel.iconUrl
     }
@@ -109,7 +113,7 @@ extension TableViewSeriesCell: CellConfigurable {
 
 extension TableViewSeriesCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.mediaList.count ?? 0
+        return viewModel?.itemCount ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

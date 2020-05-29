@@ -10,6 +10,7 @@ import UIKit
 
 struct NewEpisodesCellViewModel {
     let state: State<[Media]>
+    private let maxItemCount = 6
     
     public var isLoading: Bool {
         if case .loading = state {
@@ -28,7 +29,7 @@ struct NewEpisodesCellViewModel {
         if isLoading {
             return 5
         } else {
-            return episodes?.count ?? 0
+            return min(episodes?.count ?? 0, maxItemCount)
         }
     }
     
