@@ -18,7 +18,7 @@ enum RequestMethod: String {
 }
 
 /**
-  Basic API client to fetch remote resource. API client is made based on URLSession
+ Basic API client to fetch remote resource. API client is made based on URLSession
  */
 
 protocol RESTClientProtocol {

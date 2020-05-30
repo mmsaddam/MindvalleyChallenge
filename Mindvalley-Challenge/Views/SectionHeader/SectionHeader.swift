@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SectionHeader: UIView {
+final class SectionHeader: UIView {
     @IBOutlet weak var titleLabel: UILabel!
     var title: String? {
         didSet {
