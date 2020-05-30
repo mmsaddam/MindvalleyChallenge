@@ -48,6 +48,7 @@
 		4AB2A869248098020021BD8E /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2A868248098020021BD8E /* State.swift */; };
 		4AB2A86B248201AE0021BD8E /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2A86A248201AE0021BD8E /* Channel.swift */; };
 		4AB2A86D248201C60021BD8E /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2A86C248201C60021BD8E /* Category.swift */; };
+		4AB2A890248285DA0021BD8E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4AB2A88F248285DA0021BD8E /* README.md */; };
 		4AC144C82478D3A5007940E8 /* JSON+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC144C72478D3A5007940E8 /* JSON+Extras.swift */; };
 		4AC144CA2478D404007940E8 /* DataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC144C92478D404007940E8 /* DataProviderTests.swift */; };
 		4AC144CE247966DB007940E8 /* ChannelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC144CD247966DB007940E8 /* ChannelListViewController.swift */; };
@@ -117,6 +118,7 @@
 		4AB2A868248098020021BD8E /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		4AB2A86A248201AE0021BD8E /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		4AB2A86C248201C60021BD8E /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		4AB2A88F248285DA0021BD8E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4AC144C72478D3A5007940E8 /* JSON+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSON+Extras.swift"; sourceTree = "<group>"; };
 		4AC144C92478D404007940E8 /* DataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderTests.swift; sourceTree = "<group>"; };
 		4AC144CD247966DB007940E8 /* ChannelListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			children = (
 				4A5A42B82474EB1400180BE5 /* Mindvalley-Challenge */,
 				4A5A42CF2474EB1800180BE5 /* Mindvalley-ChallengeTests */,
+				4AB2A88F248285DA0021BD8E /* README.md */,
 				4A5A42B72474EB1400180BE5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				4A5A42C62474EB1700180BE5 /* LaunchScreen.storyboard in Resources */,
 				4AB2A85F247FF4E60021BD8E /* TableViewCourseCell.xib in Resources */,
 				4A722D69247E440700AB996E /* CategoryTableCell.xib in Resources */,
+				4AB2A890248285DA0021BD8E /* README.md in Resources */,
 				4AB2A85B247F7B610021BD8E /* SingleEpisodeCell.xib in Resources */,
 				4AC144E124798601007940E8 /* NewEpisodesCell.xib in Resources */,
 				4AB2A864247FF67A0021BD8E /* TableViewSeriesCell.xib in Resources */,
